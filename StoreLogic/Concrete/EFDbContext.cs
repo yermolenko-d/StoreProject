@@ -8,7 +8,7 @@ namespace StoreLogic.Concrete
         /// <summary>
         /// Для представления строк в таблице Cakes, EF будет ползоваться моделью "Сake"
         /// </summary>
-        public DbSet<Cake> Cakes { get; }
+        public DbSet<Cake> Cakes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
