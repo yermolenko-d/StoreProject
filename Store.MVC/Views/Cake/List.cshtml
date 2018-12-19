@@ -13,6 +13,7 @@
 {
    @Html.Partial("CakeSummary", cake)
 }
-    <div>
-        @Html.PageLinks(Model.PagesInfo, x => Url.Action("List", new { page = x }))
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagesInfo, x => Url.Action("List",
+        new { page = x, category = Model.CurrentCategory}))
     </div>

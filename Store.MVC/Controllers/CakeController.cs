@@ -20,12 +20,13 @@ namespace Store.MVC.Controllers
             cakeRepository = repository;
         }
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
             CakeListView model = new CakeListView
             {
                 Cakes = cakeRepository.Cakes
-                   .OrderBy(c => c.Id)
+                   .Where(c => category == null ||c.Category == category)
+                   .OrderBy(cake => cake.Id)
                    .Skip((page - 1) * pageSize)
                    .Take(pageSize),
                 PagesInfo = new PageInfo
@@ -33,7 +34,8 @@ namespace Store.MVC.Controllers
                 CurrentPage = page,
                 ItemsPerPage = 4,
                 TotalItems = cakeRepository.Cakes.Count()
-                }
+                },
+                CurrentCategory = category
             };
             return View(model);
         }           

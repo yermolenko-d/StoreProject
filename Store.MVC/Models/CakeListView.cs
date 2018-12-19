@@ -10,5 +10,7 @@ namespace Store.MVC.Models
     {
         public IEnumerable<Cake> Cakes { get; set; }
         public PageInfo PagesInfo { get; set; }
+        public string CurrentCategory { get; set; }
+
     }
 }
