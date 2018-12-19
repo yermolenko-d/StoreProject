@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Store.MVC.Models;
 
-namespace StoreLogic.Html
+namespace Store.MVC.HtmlHelpers
 {
     public static class PageSwitch
     {
@@ -17,9 +17,9 @@ namespace StoreLogic.Html
             StringBuilder result = new StringBuilder();
 
             for (int i = 1; i < pageInfo.TotalPages; i++)
-            {   
+            {
                 //create tag
-                TagBuilder tag = new TagBuilder("button");
+                TagBuilder tag = new TagBuilder("a");
                 //add attributes
                 tag.MergeAttribute("href", pageUrl(i));
                 tag.InnerHtml = i.ToString();
