@@ -4,17 +4,14 @@
 
 @{
     ViewBag.Title = "Our Cakes";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
 <h2>Our Cakes</h2>
 
 @foreach (var cake in @Model.Cakes)
 {
-    <div>
-        <h1>@cake.Name</h1>
-        <p>@cake.Description</p>
-        <h4>@cake.Price$ USD</h4>
-    </div>
+   @Html.Partial("CakeSummary", cake)
 }
     <div>
         @Html.PageLinks(Model.PagesInfo, x => Url.Action("List", new { page = x }))

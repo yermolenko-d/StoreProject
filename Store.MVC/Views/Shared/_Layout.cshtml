@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Cake Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -26,11 +26,18 @@
         </div>
     </div>
 
+    <div class="row panel">
+        <div id="categories" class="col-xs-3">
+            Content about categories
+        </div>
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+    </div>
     <div class="container body-content">
-        @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Cake Store Project</p>
         </footer>
     </div>
 
