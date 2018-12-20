@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StoreLogic.Entities
-{
+{   
     public class Basket
     {
         private List<BasketLine> lineCollection =
