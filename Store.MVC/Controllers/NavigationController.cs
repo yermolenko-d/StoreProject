@@ -16,8 +16,10 @@ namespace Store.MVC.Controllers
             cakeRepository = cakeRepo;
         }
 
-        public PartialViewResult Menu()
+        public PartialViewResult Menu(string category = null)
         {
+            ViewBag.SelectedCategory = category;
+
             IEnumerable<string> categories = cakeRepository.Cakes
                 .Select(cake => cake.Category)
                 .Distinct()
