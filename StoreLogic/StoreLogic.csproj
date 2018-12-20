@@ -98,6 +98,7 @@
     <Compile Include="Abstract\ICakeRepository.cs" />
     <Compile Include="Concrete\EFCakeRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Entities\Basket.cs" />
     <Compile Include="Entities\Cake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
