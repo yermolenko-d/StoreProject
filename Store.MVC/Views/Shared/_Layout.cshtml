@@ -14,9 +14,16 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#">Cake Shop</a>
-    </div>
+        <div class="navbar navbar-inverse" role="navigation">
+            <a class="navbar-brand" href="#">Cake Shop</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Categories</a></li>
+                <li><a href="#"> About</a></li>
+                <li><a href="#"> Help</a></li>
+                <li><a href="#"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
+            </ul>
+        </div>
+    
     <div class="row panel">
         <div id="categories" class="col-xs-3">
             @Html.Action("Menu", "Navigation")
