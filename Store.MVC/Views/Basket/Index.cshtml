@@ -1,0 +1,42 @@
+﻿@model Store.MVC.Models.BasketIndexView
+
+@{
+    ViewBag.Title = "Ваша корзина";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Количество</th>
+            <th class="text-center">Cake</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Basket.Show)
+        {
+            <tr>
+                <th class="text-center">@line.Amount</th>
+                <th class="text-center">@line.Cake.Name</th>
+                <th class="text-right">@line.Cake.Price uah</th>
+                <th class="text-right">
+                    @((line.Amount*line.Cake.Price)) uah
+                </th>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3", class="text-right">Итого:</td>
+            <td colspan="3", class="text-right">@Model.Basket.CountTotal() uah</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.UrlReturn">Продолжить покупки</a>
+</div>

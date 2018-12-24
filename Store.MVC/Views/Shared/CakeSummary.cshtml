@@ -9,10 +9,11 @@
         {
             <span class="badge badge-danger">New!</span>
         }
-        @using (Html.BeginForm("Add", "Basket"))
+        @using (Html.BeginForm("AddToBasket", "Basket"))
         {
             <div class="pull-right">
-
+                @Html.HiddenFor(x => x.Id)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                 <input type="submit" class="btn btn-success" value="Добавить в корзину" />
                 <span class=" label label-primary">@Model.Price$ USD</span>
             </div>

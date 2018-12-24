@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\PageSwitch.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\BasketIndexView.cs" />
     <Compile Include="Models\CakeListView.cs" />
     <Compile Include="Models\PageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -205,6 +206,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\CakeSummary.cshtml" />
     <Content Include="Views\Navigation\Menu.cshtml" />
+    <Content Include="Views\Basket\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,7 +216,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Basket\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StoreLogic\StoreLogic.csproj">
