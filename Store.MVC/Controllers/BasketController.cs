@@ -17,56 +17,41 @@ namespace Store.MVC.Controllers
             repository = repo;
         }
 
-        public ViewResult Index(string urlReturn)
+        public ViewResult Index(Basket basket,string urlReturn)
         {
             return View(new BasketIndexView
             {
-                Basket = GetBasket(),
+                Basket = basket,
                 UrlReturn = urlReturn
             });
 
         }
 
-        public RedirectToRouteResult AddToBasket(int id, string urlReturn)
+        public RedirectToRouteResult AddToBasket(Basket basket, int id, string urlReturn)
         {
             Cake cake = repository.Cakes
                 .FirstOrDefault(c => c.Id == id);
 
             if (cake != null)
             {
-                GetBasket().Add(cake, 1);
+                basket.Add(cake, 1);
             }
 
             return RedirectToAction("Index", new { urlReturn });
         }
 
-        public RedirectToRouteResult RemoveFromBasket(int id, string urlReturn)
+        public RedirectToRouteResult RemoveFromBasket(Basket basket,int id, string urlReturn)
         {
             Cake cake = repository.Cakes
                 .FirstOrDefault(c => c.Id == id);
 
             if (cake != null)
             {
-                GetBasket().RemoveLine(cake);
+                basket.RemoveLine(cake);
             }
 
             return RedirectToAction("Index", new { urlReturn });
         }
-
-
-        public Basket GetBasket()
-        {
-            Basket basket = (Basket)Session["Basket"];
-            if (basket == null)
-            {
-                basket = new Basket();
-                Session["Basket"] = basket;
-            }
-            return basket;
-
-        }
-
-
         // GET: Basket
         //public ActionResult Index()
         //{

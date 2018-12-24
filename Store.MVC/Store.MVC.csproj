@@ -181,6 +181,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PageSwitch.cs" />
+    <Compile Include="Infrastructure\Binders\IModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\BasketIndexView.cs" />
     <Compile Include="Models\CakeListView.cs" />
