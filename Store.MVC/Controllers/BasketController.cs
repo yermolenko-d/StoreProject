@@ -52,6 +52,11 @@ namespace Store.MVC.Controllers
 
             return RedirectToAction("Index", new { urlReturn });
         }
+
+        public PartialViewResult Summary(Basket basket)
+        {
+            return PartialView(basket);
+        }
         // GET: Basket
         //public ActionResult Index()
         //{

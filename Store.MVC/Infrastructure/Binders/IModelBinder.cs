@@ -6,12 +6,7 @@ using System.Web.Mvc;
 
 namespace Store.MVC.Infrastructure.Binders
 {
-    public interface IModelBinder
-    {
-        object BindModel(ControllerContext controllerContext,
-                    ModelBindingContext modelBindingContext);
-    }
-
+ 
     public class ModelBinder : IModelBinder
     {
         private const string sessionKey = "Basket";

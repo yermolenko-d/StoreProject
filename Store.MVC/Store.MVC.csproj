@@ -208,6 +208,7 @@
     <Content Include="Views\Shared\CakeSummary.cshtml" />
     <Content Include="Views\Navigation\Menu.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
+    <Content Include="Views\Shared\Summary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

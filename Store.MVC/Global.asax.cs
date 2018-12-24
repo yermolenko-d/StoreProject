@@ -15,7 +15,7 @@ namespace Store.MVC
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            ModelBinders.Binders.Add(typeof(Basket), new ModelBinder);
+            ModelBinders.Binders.Add(typeof(Basket), new ModelBinder());
         }
     }
 }

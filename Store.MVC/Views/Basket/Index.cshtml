@@ -19,12 +19,20 @@
         @foreach (var line in Model.Basket.Show)
         {
             <tr>
-                <th class="text-center">@line.Amount</th>
-                <th class="text-center">@line.Cake.Name</th>
-                <th class="text-right">@line.Cake.Price uah</th>
-                <th class="text-right">
+                <td class="text-center">@line.Amount</td>
+                <td class="text-center">@line.Cake.Name</td>
+                <td class="text-right">@line.Cake.Price uah</td>
+                <td class="text-right">
                     @((line.Amount*line.Cake.Price)) uah
-                </th>
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromBasket", "Basket"))
+                    {
+                        @Html.Hidden("Id", line.Cake.Id)
+                        @Html.HiddenFor(c => c.UrlReturn)
+                        <input class="btn btn-warning" type="submit" value="Удалить"/>
+                    }
+                </td>
             </tr>
         }
     </tbody>
