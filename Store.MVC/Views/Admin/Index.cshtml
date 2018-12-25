@@ -1,0 +1,48 @@
+﻿@model IEnumerable<StoreLogic.Entities.Cake>
+
+@{
+    ViewBag.Title = "Админ панель: Список товаров.";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Список товаров</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th class="text-right">ID</th>
+                <th class="text">Название</th>
+                <th class="text-right">Цена</th>
+                <th class="text-right">Действия</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-right">@item.Id</td>
+                    <td>@Html.ActionLink(item.Name, "Edit", new { item.Id })</td>
+                    <td class="text-right">@item.Price $ USD</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("Delete", "Admin"))
+                        {
+                            @Html.Hidden("ID", item.Id)
+                            <input type="submit"
+                                   class="btn btn-default btn-xs"
+                                   value="Удалить"/>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Добавить товар", "Create", null,
+       new {@class="btn btn-default" })
+    </div>
+
+
+
+</div>

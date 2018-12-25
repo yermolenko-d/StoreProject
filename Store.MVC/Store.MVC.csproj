@@ -175,6 +175,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
@@ -212,6 +213,8 @@
     <Content Include="Views\Shared\Summary.cshtml" />
     <Content Include="Views\Basket\Checkout.cshtml" />
     <Content Include="Views\Basket\Complete.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

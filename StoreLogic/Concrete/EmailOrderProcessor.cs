@@ -69,8 +69,6 @@ namespace StoreLogic.Concrete
                 .AppendLine("Доставка:")
                 .AppendLine(shippingDetails.Name)
                 .AppendLine(shippingDetails.Line1)
-                .AppendLine(shippingDetails.Line2 ?? "")
-                .AppendLine(shippingDetails.Line3 ?? "")
                 .AppendLine(shippingDetails.City)
                 .AppendLine(shippingDetails.Country)
                 .AppendLine("---")
