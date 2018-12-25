@@ -12,10 +12,39 @@ namespace Store.MVC.Controllers
     public class BasketController : Controller
     {
         private ICakeRepository repository;
-        public BasketController(ICakeRepository repo)
+        private IOrderProcessor orderProcessor;
+
+        public BasketController(ICakeRepository repo, IOrderProcessor processor)
         {
             repository = repo;
+            orderProcessor = processor;
         }
+
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+
+
+        [HttpPost]
+        public ViewResult Checkout(Basket basket, ShippingDetails shippingDetails)
+        {
+            if (basket.Show.Count() == 0)
+            {
+                ModelState.AddModelError("", "Извините, корзина пуста.");
+            }
+            if (ModelState.IsValid)
+            {
+                orderProcessor.ProcessOrder(basket, shippingDetails);
+                basket.Clear();
+                return View("Complete");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
+        }
+
 
         public ViewResult Index(Basket basket,string urlReturn)
         {
