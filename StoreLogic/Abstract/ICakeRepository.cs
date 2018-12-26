@@ -11,5 +11,6 @@ namespace StoreLogic.Abstract
     {
         IEnumerable<Cake> Cakes { get; }
         void SaveChange (Cake cake);
+        Cake Delete(Cake cake);
     }
 }

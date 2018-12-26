@@ -32,6 +32,11 @@ namespace Store.MVC.Controllers
             return View(cake);
         }
 
+        public ViewResult Create()
+        {
+            return View("Edit", new Cake());
+        }
+
         //POST method для изменения данных
         [HttpPost]
         public ActionResult Edit(Cake cake)
@@ -52,9 +57,17 @@ namespace Store.MVC.Controllers
             }
         }
 
-        public ViewResult Create()
+        [HttpPost]
+        public ActionResult Delete(Cake cake)
         {
-            return View("Edit", new Cake());
+            Cake deletedCake = cakeRepository.Delete(cake);
+            if (deletedCake != null)
+            {
+                TempData["Message"] = $"Удаление продукта \"{deletedCake.Name}\" успешно";
+            }
+            return RedirectToAction("Index");
         }
+        
+
     }
 }
