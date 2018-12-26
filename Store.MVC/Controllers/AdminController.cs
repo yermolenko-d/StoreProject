@@ -51,5 +51,10 @@ namespace Store.MVC.Controllers
                 return View(cake);
             }
         }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Cake());
+        }
     }
 }
