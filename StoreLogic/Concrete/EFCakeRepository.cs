@@ -16,5 +16,28 @@ namespace StoreLogic.Concrete
         {
             get { return context.Cakes; }
         }
+
+
+        public void SaveChange(Cake cake)
+        {
+            if (cake.Id == 0)
+            {
+                context.Cakes.Add(cake);
+            }
+            else
+            {
+                Cake dbEntity = context.Cakes.Find(cake.Id);
+                if (dbEntity != null)
+                {
+                    dbEntity.Name = cake.Name;
+                    dbEntity.Description = cake.Description;
+                    dbEntity.Price = cake.Price;
+                    dbEntity.Category= cake.Category;
+                }
+            }
+            context.SaveChanges();
+
+        }
+
     }
 }

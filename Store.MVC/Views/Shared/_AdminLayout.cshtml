@@ -22,6 +22,10 @@
 </head>
 <body>
     <div> 
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success">@TempData["Message"]</div>
+        }
         @RenderBody()
     </div>
 </body>

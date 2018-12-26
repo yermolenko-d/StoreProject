@@ -27,10 +27,5 @@ namespace Store.MVC.Controllers
             return PartialView(categories);
         }
 
-        // GET: Navigation
-        //public string Index()
-        //{
-        //    return "TESTING";
-        //}
     }
 }
