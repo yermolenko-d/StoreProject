@@ -14,12 +14,12 @@
     <div class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">Cake Shop</a>
+            @Html.ActionLink("Shoppie", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             @Html.Action("Summary", "Basket")
             <div class="navbar-left">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="#">Categories</a></li>
-                    <li><a href="#"> About</a></li>
+                    <li class="active">@Html.ActionLink("Категории", "List", "Cake", new { area = "" }, null)</li>
+                    <li> @Html.ActionLink("Log In", "Login", "Account", new { area = "" }, null)</a></li>
                     <li><a href="#"> Help</a></li>
                     <li><a href="#"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
                 </ul>

@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    ViewBag.Title = "Our Cakes";
 }
 
 <!DOCTYPE html>
@@ -10,18 +11,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/main.css">
     <link href="~/Content/ErorStyleSheet.css" rel="stylesheet" />
-    <title>_AdminLayout</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div> 
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+
+            @Html.ActionLink("Shoppie", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.Action("Summary", "Basket")
+            <div class="navbar-left">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active">@Html.ActionLink("Категории", "List", "Cake", new { area = "" }, null)</li>
+                    <li> @Html.ActionLink("Log In", "Login", "Account", new { area = "" }, null)</a></li>
+                    <li><a href="#"> Help</a></li>
+                    <li><a href="#"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
         @if (TempData["Message"] != null)
         {
             <div class="alert alert-success">@TempData["Message"]</div>
