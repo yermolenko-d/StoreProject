@@ -1,10 +1,14 @@
 ﻿@model StoreLogic.Entities.Basket
 
 <div class="navbar-right">
-    @Html.ActionLink("Заказать", "Index", "Basket",
-    new { returnUrl = Request.Url.PathAndQuery },
-    new { @class = "btn btn-default navbar-btn" })
+    <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+            @Html.ActionLink("Заказать", "Index", "Basket",
+            new { returnUrl = Request.Url.PathAndQuery }    )
+        </li>
+    </ul>
 </div>
+
 <div class="btn-group">
 <div class="navbar-text navbar-right">
     <b>Ваша корзина:</b>
