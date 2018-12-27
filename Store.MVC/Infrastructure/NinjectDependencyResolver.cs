@@ -10,6 +10,8 @@ using Ninject;
 using StoreLogic.Entities;
 using StoreLogic.Abstract;
 using System.Configuration;
+using Store.MVC.Infrastructure.Abstract;
+using Store.MVC.Infrastructure.Concrete;
 
 namespace Store.MVC.Infrastructure
 {
@@ -46,6 +48,8 @@ namespace Store.MVC.Infrastructure
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                             .WithConstructorArgument("setup", emailSetup);
+
+            kernel.Bind<IAuthProvider>().To<AuthProvider>();
         }
         }
     

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Store.MVC.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
 
