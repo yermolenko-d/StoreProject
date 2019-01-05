@@ -13,6 +13,32 @@ namespace Store.MVC
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(null, "",
+                new
+                {
+                    controller = "Cake",
+                    action = "List",
+                    category = (string)null,
+                    page = 1
+                });
+
+            routes.MapRoute(
+                name: null,
+                url: "Page{page}",
+                defaults: new { controller = "Cake" , action = "List", category = (string)null},
+                constraints: new {page = @"\d+" });
+
+            routes.MapRoute(null,
+                "{category}",
+                new { controller = "Cake", action = "List", page = 1 }
+                );
+
+            routes.MapRoute(
+                name: null,
+                url: "Cakes/Page{page}",
+                defaults: new { controller = "Cake", action = "List"}
+                );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

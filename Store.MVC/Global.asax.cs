@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Store.MVC.Infrastructure.Binders;
+using StoreLogic.Entities;
 
 namespace Store.MVC
 {
@@ -13,6 +15,7 @@ namespace Store.MVC
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ModelBinders.Binders.Add(typeof(Basket), new ModelBinder());
         }
     }
 }

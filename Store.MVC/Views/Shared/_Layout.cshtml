@@ -3,38 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/main.css">
+    <link href="~/Content/ErorStyleSheet.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-topі" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+            <div class="nabar-header">
+                @Html.ActionLink("Shoppie", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
+                @Html.Action("Summary", "Basket")
+                <div class="navbar-left">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="active">@Html.ActionLink("Категории", "List", "Cake", new { area = "" }, null)</li>
+                        <li> @Html.ActionLink("Log In", "Login", "Account", new { area = "" }, null)</li>
+                        <li><a href="#"> Help</a></li>
+                        <li><a href="#"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="row panel">
+        <div id="categories" class="col-xs-3">
+            @Html.Action("Menu", "Navigation")
+        </div>
+        <div class="col-xs-8">
+            @RenderBody()
         </div>
     </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384
+   -Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

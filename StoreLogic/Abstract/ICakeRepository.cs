@@ -10,5 +10,7 @@ namespace StoreLogic.Abstract
     public interface ICakeRepository
     {
         IEnumerable<Cake> Cakes { get; }
+        void SaveChange (Cake cake);
+        Cake Delete(Cake cake);
     }
 }

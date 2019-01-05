@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using StoreLogic.Concrete;
 using System.Linq;
@@ -8,7 +9,9 @@ using Moq;
 using Ninject;
 using StoreLogic.Entities;
 using StoreLogic.Abstract;
-
+using System.Configuration;
+using Store.MVC.Infrastructure.Abstract;
+using Store.MVC.Infrastructure.Concrete;
 
 namespace Store.MVC.Infrastructure
 {
@@ -36,7 +39,18 @@ namespace Store.MVC.Infrastructure
             {
             // Здесь размещаются привязки
             kernel.Bind<ICakeRepository>().To<EFCakeRepository>();
-            }
+
+            EmailSetup emailSetup = new EmailSetup
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager 
+                .AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                            .WithConstructorArgument("setup", emailSetup);
+
+            kernel.Bind<IAuthProvider>().To<AuthProvider>();
+        }
         }
     
 }

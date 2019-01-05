@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Our Cakes";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/HomePageStyle/css/main.css">
+    <link href="~/Content/ErorStyleSheet.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+
+            @Html.ActionLink("Shoppie", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.Action("Summary", "Basket")
+            <div class="navbar-left">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active">@Html.ActionLink("Категории", "List", "Cake", new { area = "" }, null)</li>
+                    <li> @Html.ActionLink("Log In", "Login", "Account", new { area = "" }, null)</a></li>
+                    <li><a href="#"> Help</a></li>
+                    <li><a href="#"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success">@TempData["Message"]</div>
+        }
+        @RenderBody()
+    </div>
+</body>
+</html>

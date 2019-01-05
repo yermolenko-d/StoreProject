@@ -1,0 +1,51 @@
+﻿@model Store.MVC.Models.BasketIndexView
+
+@{
+    ViewBag.Title = "Ваша корзина";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Количество</th>
+            <th class="text-center">Cake</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Стоимость</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Basket.Show)
+        {
+            <tr>
+                <td class="text-center">@line.Amount</td>
+                <td class="text-center">@line.Cake.Name</td>
+                <td class="text-right">@line.Cake.Price uah</td>
+                <td class="text-right">
+                    @((line.Amount*line.Cake.Price)) uah
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromBasket", "Basket"))
+                    {
+                        @Html.Hidden("Id", line.Cake.Id)
+                        @Html.HiddenFor(c => c.UrlReturn)
+                        <input class="btn btn-warning" type="submit" value="Удалить"/>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3", class="text-right">Итого:</td>
+            <td colspan="3", class="text-right">@Model.Basket.CountTotal() uah</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+<div class="text-center">
+    @Html.ActionLink("Продолжить покупки", "List", "Cake", null, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Оформить заказ", "Checkout", null, new { @class = "btn btn-success" })
+</div>

@@ -1,0 +1,18 @@
+﻿@model StoreLogic.Entities.Basket
+
+<div class="navbar-right">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+            @Html.ActionLink("Заказать", "Index", "Basket",
+            new { returnUrl = Request.Url.PathAndQuery }    )
+        </li>
+    </ul>
+</div>
+
+<div class="btn-group">
+<div class="navbar-text navbar-right">
+    <b>Ваша корзина:</b>
+    @Model.Show.Sum(x => x.Amount) Cakes,
+    @Model.CountTotal() uah
+</div>
+</div>
