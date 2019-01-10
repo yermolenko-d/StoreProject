@@ -37,14 +37,14 @@ namespace Store.MVC.Infrastructure
 
             private void AddBindings()
             {
-            // Здесь размещаются привязки
+            
             kernel.Bind<ICakeRepository>().To<EFCakeRepository>();
 
             EmailSetup emailSetup = new EmailSetup
             {
                 WriteAsFile = bool.Parse(ConfigurationManager 
                 .AppSettings["Email.WriteAsFile"] ?? "false")
-            };
+            };  
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                             .WithConstructorArgument("setup", emailSetup);
